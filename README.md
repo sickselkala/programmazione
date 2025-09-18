@@ -10,7 +10,7 @@ This repository contains Java files that were used for my **Programmazione** exa
    git clone https://github.com/sickselkala/programmazione.git
 
 ### Explanation of Sections:
-- **Programmazione**: The name and description of your repository (this is the name of the exam at Camerino University).
+- **Programmazione**
 - **Files in this Repository**:
 - **Purpose**: The Java files in this repository were developed as part of my Programmazione exam. The project demonstrates my understanding and implementation of various programming concepts like algorithms, data structures, and object-oriented programming.
 - **License**: personal use and educational purposes only.
