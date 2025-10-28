@@ -1,0 +1,49 @@
+Scrivere un programma in Java per gestire una pasticceria
+utilizzando una classe Pasticceria che contiene un elenco di
+torte. Una torta può essere di tre tipi diversi: cioccolato, crema e
+pistacchio. Scrivere le classi: Pasticceria, Torta, TortaAlCioccolato eTortaAlPistacchio.
+
+Classe Pasticceria:
+- Attributi:
+- torte: array di torte
+- numeroTorteAggiunte: numero di torte presenti attualmente nell’array.
+
+- Metodi:
+- aggiungiTorta(Torta torta) per aggiungere una torta all’elenco.
+- venditaTorta(String nomeTorta) che permette di vendere una
+porzione di una torta specifica (basata sul nome). Deve verificare se la torta
+esiste nell’elenco e, in caso affermativo, chiamare il metodo vendita() sulla
+torta corrispondente.
+- stampaTorteDisponibili() che stampa le informazioni su tutte le torte
+disponibili in pasticceria.
+
+Classe Torta:
+- Attributi:
+- nome: nome della torta.
+- prezzo: prezzo di una porzione di torta.
+- quantitaRestante: la quantità rimanente di torta (in grammi), inizializzata
+con il valore di quantitaMassima.
+- quantitaMassima: quantità iniziale della torta (in grammi).
+
+- Metodi:
+- Metodo costruttore.
+- vendita() che viene ridefinito in modo diverso per ogni classe derivata,
+per calcolare la quantità venduta per ogni porzione.
+
+Classi TortaAlCioccolato e TortaAlPistacchio:
+
+- Creare tre classi derivate da Torta che implementano il metodo vendita() in
+modo specifico:
+
+●TortaAlCioccolato: ogni porzione rappresenta il 20% della quantità totale
+iniziale (quantitaMassima).
+
+● TortaAllaCrema: ogni porzione rappresenta il 30% della quantità totale
+iniziale (quantitaMassima).
+
+● TortaAlPistacchio: ogni porzione rappresenta il 25% della quantità totale
+iniziale (quantitaMassima).
+
+Ogni classe deve implementare il metodo vendita() per sottrarre la quantità appropriata
+da quantitaRestante. Se non è possibile effettuare una vendita (quantità insufficiente), il
+metodo deve restituire un messaggio di errore.

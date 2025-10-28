@@ -1,0 +1,23 @@
+/*
+Si vuole realizzare un programma che gestisce ricette di cucina.
+
+Definire la classe Ingrediente avente lattributo nome di tipo String e l'attributo quantità di tipo int.
+
+Definire il costruttore con due parametri nell'ordine: nome e quantità
+che genera un'eccezione di tipo Illegal ArgumentException se la stringa del nome è nulla o se la quantità è minore o uguale a zero.
+
+Definire la classe Ricetta avente l'attributo persone di tipo int e l'attributo ingredienti array di tipo
+Ingrediente e l'attributo numerolngredienti di tipo int.
+
+Definire il contruttore con due parametri nell'ordine: il numero massimo di elementi dell'array ingredienti e il numero di persone della ricetta.
+Il costruttore genera un'eccezione di tipo IllegalArgumentException se il numero massimo di elementi dell'array o il numero di persone della ricetta è minore o oguale a zero.
+
+
+Definire il metodo boolean add (Ingrediente i) che aggiunge un ingrediente non nullo alla ricetta se l'ingrediente (con lo stesso nome)
+non è già presente e se non è stato raggiunto il numero massimo di ingredienti per la ricetta. Se l'aggiunta ha successo produre true altrimenti false.
+
+Definire il metodo double pesoPersona () che produce la quantità di ingredienti per persona.
+
+Definire il metodo Ingrediente ingredientePrincipale() che produce l'ingrediente in maggiore quantità della ricetta o null se non vi sono ingredienti.
+
+*/

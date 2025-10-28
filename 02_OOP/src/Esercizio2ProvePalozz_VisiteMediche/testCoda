@@ -1,0 +1,201 @@
+Si vuole gestire un sistema di prenotazione di visite mediche. Il sistema
+prevede la possibilitÃ  di prenotarsi indicando nome e cognome.
+Definire la classe Visita caratterizzata da due attributo di tipo
+String nome e cognome. Definire il costruttore con due parametri:
+nome, cognome che genera un'eccezione se nome o cognome sono nulli o stringhe con meno di due
+caratteri.
+Definire la classe Coda che permette di inserire oggetti di tipo Visita. La
+classe Coda Ã¨ caratterizzata da un attributo
+coda di tipo array di Visita e da un intero indicante il numero di pazienti
+prenotatati dal costruttore con un parametro intero indicante
+il numero massimo di elementi di tipo Visita gestiti. Viene generata un'eccezione
+se il parametro Ã¨ negativo.
+Definire quindi il metodo boolean inserimento(Visita v) che inserisce una visita
+in fondo alla coda e produce true se ha successo. Il metodo non effettua alcuna
+prenotazione e produce false se il numero di visite eccede il numero di posti
+disponibili.
+Definire il metodo Visita estrazione() che preleva e cancella il primo elemento
+della coda. Il metodo produce null se non vi sono elementi
+Definire il metodo boolean cancella(String nome, String cognome) per cancellare
+la prenotazione di una visita che abbia come paziente un utente con nome e cognome.
+Tale metodo camcella la visita ma mantiene l'ordine presente delle prenotazioni
+compattando gli elementi presenti nell'array coda.
+
+public class TestCoda {
+        // Creazione di alcune visite
+        Visita v1 = new Visita("Mario", "Rossi");
+        Visita v2 = new Visita("Luca", "Bianchi");
+        Visita v3 = new Visita("Giulia", "Verdi");
+        Visita v4 = new Visita("Giovanni", "Neri");
+        Visita v5 = new Visita("Paolo", "Gialli");
+        Visita v6 = new Visita("Francesca", "Blu");
+
+        // Creazione di una coda con capacità di 5 pazienti
+        Coda coda = new Coda(5);
+
+        // Aggiunta delle visite alla coda
+        System.out.println("Aggiunta visita 1: " + coda.inserimento(v1)); // true
+        System.out.println("Aggiunta visita 2: " + coda.inserimento(v2)); // true
+        System.out.println("Aggiunta visita 3: " + coda.inserimento(v3)); // true
+
+        //SPAZIO
+        System.out.println();
+        System.out.println("ELENCO: ");
+
+        // Stampa dell'elenco delle visite
+        coda.stampaElenco(); // Mario Rossi, Luca Bianchi, Giulia Verdi
+
+        // Estrazione di una visita
+        System.out.println(); // Mario Rossi
+        coda.estrazione(); // Mario Rossi
+
+        //SPAZIO
+        System.out.println();
+        System.out.println("ELENCO: ");
+
+        // Stampa dell'elenco delle visite
+        coda.stampaElenco(); // Luca Bianchi, Giulia Verdi
+
+        // SPAZIO
+        System.out.println();
+
+        //Estrazione di una visita
+        coda.estrazione(); // Luca Bianchi
+
+        // Stampa dell'elenco delle visite
+        coda.stampaElenco(); // Giulia Verdi
+
+        //SPAZIO
+        System.out.println();
+
+        //Aggiunta di altre visite
+        System.out.println("Aggiunta visita 4: " + coda.inserimento(v4)); // true
+        System.out.println("Aggiunta visita 5: " + coda.inserimento(v5)); // true
+        System.out.println("Aggiunta visita 6: " + coda.inserimento(v6)); // true
+        System.out.println("Aggiunta visita 7: " + coda.inserimento(v1)); // true
+
+
+        //SPAZIO
+        System.out.println();
+        System.out.println("ELENCO: ");
+
+        // Stampa dell'elenco delle visite
+        coda.stampaElenco(); // Giulia Verdi, Giovanni Neri, Paolo Gialli, Francesca Blu, Mario Rossi
+
+        //SPAZIO
+        System.out.println();
+
+
+        // Cancellazione di una visita
+        System.out.println("Cancellazione visita: " + coda.cancella("Giovanni", "Neri")); // true
+
+        //SPAZIO
+        System.out.println();
+        System.out.println("ELENCO: ");
+
+        // Stampa dell'elenco delle visite
+        coda.stampaElenco(); // Giulia Verdi, Paolo Gialli, Francesca Blu, Mario Rossi
+
+        //SPAZIO
+        System.out.println();
+
+        System.out.println("Cancellazione visita non presente: " + coda.cancella("Non", "Esiste")); //
+    }
+
+
+
+
+
+    CLASSE CODA:
+
+    package Esercizio2ProvePalozz_VisiteMediche;
+
+    public class Coda {
+        private Visita[] elenco;
+        private int nPazienti;
+        private int nMax;
+
+        public Coda (int nMax){
+            if(nMax < 0) throw new IllegalArgumentException("Il numero massimo dell'elenco non può essere < 0!!!");
+            this.nMax = nMax;
+            this.nPazienti = 0;
+            elenco = new Visita[nMax];
+        }
+        public boolean inserimento(Visita v) {
+            for (int i = 0; i < elenco.length; i++) {
+                if (elenco[i] == null) {
+                    elenco[i] = v;
+                    nPazienti++;
+                    return true;
+                }
+            }
+            return false;
+        }
+        public Visita estrazione(){
+            for(int i = 0; i < elenco.length; i++ ) {
+                if (elenco[i] != null) {
+                    Visita v = elenco[i];
+                    elenco[i] = null;
+                    return v;
+                }
+            }
+            return null;
+        }
+
+        public boolean cancellazione (String nome, String cognome){
+            for (int k = 0; k < elenco.length; k++){
+                Visita temp;
+                for(int i = 0; i < elenco.length - 1; i++){
+                    if (elenco[i] == null && elenco[i+1] != null){
+                        temp = elenco[i];
+                        elenco[i] = elenco[i+1];
+                        elenco[i+1] = temp;
+                    }
+                }
+            }
+            for (int i = 0; i < elenco.length; i++){
+                if (elenco[i] == null){
+                    return false;
+                }
+                if (elenco[i].getNome().equals(nome) && elenco[i].getCognome().equals(cognome)){
+                    elenco[i] = null;
+                    nPazienti--;
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void stampaElenco(){
+            for(int i = 0; i < nMax; i++){
+                if(elenco[i] != null) {
+                    System.out.println(elenco[i].getNome() + " " + elenco[i].getCognome());
+                }
+                }
+            }
+        }
+
+
+CLASSE VISITA
+package Esercizio2ProvePalozz_VisiteMediche;
+
+public class Visita {
+    private String nome;
+    private String cognome;
+
+    public Visita(String nome, String cognome){
+        if(nome == null || nome.length() < 2 || cognome == null || cognome.length() < 2){
+            throw new IllegalArgumentException("Nome o cognome non validi!");
+        }
+        this.nome = nome;
+        this.cognome = cognome;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+}
+
