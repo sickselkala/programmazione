@@ -1,4 +1,4 @@
-# Esercitazioni Java per l'Esame di [Nome dell'Esame]
+# Esercitazioni Java per l'Esame di Programmazione
 
 Questa repository contiene una raccolta di tutti gli esercizi, progetti e appunti di programmazione in Java svolti in preparazione per l'esame di **Programmazione**.
 
@@ -9,7 +9,7 @@ L'obiettivo di questo spazio è di tracciare i miei progressi, organizzare il ma
 * **Università:** `Università degli Studi di Camerino`
 * **Corso di Laurea:** `Informatica L-31`
 * **Corso:** `Programmzione`
-* **Anno Accademico:** `1'
+* **Anno Accademico:** '2024/2025'
 * **Professore:** `Michele L. , Rosario C.`
 
 ---
